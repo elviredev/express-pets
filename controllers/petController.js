@@ -88,8 +88,8 @@ exports.actuallyUpdatePet = async (req, res) => {
     ourNewObject.birthYear = req.body.birthYear
   }
 
-  if (ourNewObject.species != "cat" && ourNewObject.species != "dog") {
-    ourNewObject.species = "dog"
+  if (ourNewObject.species != "chat" && ourNewObject.species != "chien" && ourNewObject.species != "lapin" && ourNewObject.species != "poule") {
+    ourNewObject.species = "chien"
   }
 
   const expectedSignature = cloudinary.utils.api_sign_request({ public_id: req.body.public_id, version: req.body.version }, cloudinaryConfig.api_secret)
@@ -123,8 +123,8 @@ exports.storePet = async (req, res) => {
     ourObject.birthYear = req.body.birthYear
   }
 
-  if (ourObject.species != "cat" && ourObject.species != "dog") {
-    ourObject.species = "dog"
+  if (ourObject.species != "chat" && ourObject.species != "chien" && ourObject.species != "lapin" && ourObject.species != "poule") {
+    ourObject.species = "chien"
   }
 
   const expectedSignature = cloudinary.utils.api_sign_request({ public_id: req.body.public_id, version: req.body.version }, cloudinaryConfig.api_secret)

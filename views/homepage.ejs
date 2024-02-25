@@ -16,11 +16,11 @@
     <div class="top-section">
 
       <div class="actual-top-content">
-        <h1>Find Your New Bestie</h1>
-        <p class="intro-text">The most amazing list of adoptable pets at your fingertips. Updated fresh daily!</p>
+        <h1>Trouvez votre meilleur ami.</h1>
+        <p class="intro-text">La liste la plus étonnante d’animaux adoptables à portée de main. Mis à jour quotidiennement !</p>
         <div class="intro-buttons">
-          <a href="#view-pets" class="our-btn utility-mr">View Pets</a>
-          <a href="/admin" class="our-btn our-btn--outline">Manage Pets</a>
+          <a href="#view-pets" class="our-btn utility-mr">Voir Amis</a>
+          <a href="/admin" class="our-btn our-btn--outline">Gérer Amis</a>
         </div>
 
         <div class="intro-features">
@@ -38,10 +38,10 @@
               </defs>
             </svg>
 
-            <h2>Sunny Play</h2>
+            <h2>Jeux en plein air</h2>
 
-            <p>Our center is located in beautiful Miami, and it&rsquo;s currently <span
-                id="temperature-output"></span>°F at our pet playground.
+            <p>Notre centre est situé dans la belle ville de Chapelon, et il fait actuellement
+              <span id="temperature-output"></span>°C sur notre aire de jeux pour animaux de compagnie.
             </p>
           </div>
           <div class="intro-feature">
@@ -58,9 +58,9 @@
               </defs>
             </svg>
 
-            <h2>Dedicated Staff</h2>
+            <h2>Personnel dévoué</h2>
 
-            <p>Our center has over 70 volunteers who play with the pets four times daily.</p>
+            <p>Notre centre compte plus de 70 bénévoles qui jouent avec les animaux quatre fois par jour.</p>
           </div>
           <div class="intro-feature">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,9 +76,9 @@
               </defs>
             </svg>
 
-            <h2>Voted #1</h2>
+            <h2>Récompenses</h2>
 
-            <p>For the last five years we&rsquo;ve consistently been voted the #1 pet adoption center in the state.</p>
+            <p>Au cours des cinq dernières années, nous avons régulièrement été élus centre d'adoption d'animaux de compagnie n°1 dans la région.</p>
           </div>
           <div class="intro-feature">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,10 +97,9 @@
               </defs>
             </svg>
 
-            <h2>Nightly Yoga</h2>
+            <h2>Yoga du soir</h2>
 
-            <p>Every night our staff leads a yoga session and the animals are free to roam around and relax around
-              people.
+            <p>Chaque soir, notre personnel organise une séance de yoga et les animaux sont libres de se promener et de se détendre en présence des gens.
             </p>
           </div>
         </div>
@@ -115,11 +114,15 @@
 
   <div class="page-section" id="view-pets">
     <div class="page-section-inner">
-      <h2 class="page-section-title">Meet Our Friends</h2>
+      <h2 class="page-section-title">Rencontrez nos amis</h2>
 
       <div class="pet-filter">
-        <p>Show me: <button class="active" data-filter="all">All Pets</button> <button data-filter="dog">Only
-            Dogs</button> <button data-filter="cat">Only Cats</button></p>
+        <p>Nos amis: <button class="active" data-filter="tous">Tous</button>
+          <button data-filter="chien">Chiens</button>
+          <button data-filter="chat">Chats</button>
+          <button data-filter="lapin">Lapins</button>
+          <button data-filter="poule">Poules</button>
+        </p>
       </div>
 
       <div class="list-of-pets">
@@ -135,10 +138,10 @@
                 <%= pet.description %>
               </p>
               <p class="pet-age">
-                <% if (new Date().getFullYear() - pet.birthYear==1) { %> 1 year old <% } if (new Date().getFullYear() -
-                    pet.birthYear==0) { %> Less than a year old <% } if (new Date().getFullYear() - pet.birthYear> 1) {
+                <% if (new Date().getFullYear() - pet.birthYear==1) { %> 1 an <% } if (new Date().getFullYear() -
+                    pet.birthYear==0) { %> Moins d'un an <% } if (new Date().getFullYear() - pet.birthYear> 1) {
                       %>
-                      <%= new Date().getFullYear() - pet.birthYear %> years old <% } %>
+                      <%= new Date().getFullYear() - pet.birthYear %> ans <% } %>
               </p>
             </div>
             <div class="pet-card-photo">
@@ -156,8 +159,21 @@
     </div>
   </div>
   <footer class="site-footer">
-    <p>&copy; 2023 Fake Adoption Center. All rights reserved.</p>
+    <p>&copy; 2024 Faux centre d'adoption. Tous droits réservés</p>
   </footer>
+
+  <!-- Overlay -->
+  <div class="form-overlay">
+    <div class="form-overlay-inner">
+      <form class="form-content">
+        <input type="text" autocomplete="off" class="form-field" id="name">
+      </form>
+      <div class="form-photo">
+        <p>Merci de votre intérêt pour Barksalot.</p>
+      </div>
+      <div class="thank-you"></div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

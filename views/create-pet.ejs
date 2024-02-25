@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add New Pet | Pet Adoption</title>
+  <title>Ajouter un ami | Pet Adoption</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -14,14 +14,16 @@
 <body>
   <div class="page-section">
     <div class="page-section-inner">
-      <a href="/admin" class="small-link">&laquo; Back to admin dashboard</a>
-      <h1 class="page-section-title mb-big">Add New Pet</h1>
+      <a href="/admin" class="small-link">&laquo; Retour à la page d'administration</a>
+      <h1 class="page-section-title mb-big">Ajouter un nouvel ami</h1>
       <form id="manage-pet-form" action="/store-pet" method="POST">
-        <input autofocus autocomplete="off" class="form-field" type="text" name="name" placeholder="name" />
-        <input autocomplete="off" class="form-field" type="text" name="birthYear" placeholder="Year born (e.g. 2019)" />
+        <input autofocus autocomplete="off" class="form-field" type="text" name="name" placeholder="Nom de l'animal de compagnie" />
+        <input autocomplete="off" class="form-field" type="text" name="birthYear" placeholder="Année de naissance (ex. 2019)" />
         <select class="form-field" name="species">
-          <option>dog</option>
-          <option>cat</option>
+          <option>chien</option>
+          <option>chat</option>
+          <option>lapin</option>
+          <option>poule</option>
         </select>
         <textarea class="form-field" name="description" placeholder="Description..."></textarea>
 
@@ -32,13 +34,13 @@
         <input id="public_id" type="hidden" name="public_id" />
         <input id="version" type="hidden" name="version" />
         <input id="signature" type="hidden" name="signature" />
-        <button id="submit-btn" class="our-btn">Add New Pet</button>
+        <button id="submit-btn" class="our-btn">Ajouter</button>
       </form>
     </div>
   </div>
 
   <footer class="site-footer">
-    <p>&copy; 2023 Fake Adoption Center. All rights reserved.</p>
+    <p>&copy; 2024 Faux centre d'adoption. Tous droits réservés</p>
   </footer>
 
   <script>

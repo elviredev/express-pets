@@ -82,14 +82,19 @@ exports.actuallyUpdatePet = async (req, res) => {
     req.body.description = ""
   }
 
-  let ourNewObject = { name: sanitizeHtml(req.body.name, sanitizeOptions), birthYear: new Date().getFullYear(), species: sanitizeHtml(req.body.species, sanitizeOptions), description: sanitizeHtml(req.body.description, sanitizeOptions) }
+  let ourNewObject = {
+    name: sanitizeHtml(req.body.name, sanitizeOptions),
+    birthYear: new Date().getFullYear(),
+    species: sanitizeHtml(req.body.species, sanitizeOptions),
+    description: sanitizeHtml(req.body.description, sanitizeOptions)
+  }
 
   if (req.body.birthYear > 999 && req.body.birthYear < 9999) {
     ourNewObject.birthYear = req.body.birthYear
   }
 
-  if (ourNewObject.species != "cat" && ourNewObject.species != "dog") {
-    ourNewObject.species = "dog"
+  if (ourNewObject.species != "chat" && ourNewObject.species != "chien" && ourNewObject.species != "lapin" && ourNewObject.species != "poule") {
+    ourNewObject.species = "chien"
   }
 
   const expectedSignature = cloudinary.utils.api_sign_request({ public_id: req.body.public_id, version: req.body.version }, cloudinaryConfig.api_secret)
@@ -117,14 +122,19 @@ exports.storePet = async (req, res) => {
     req.body.description = ""
   }
   
-  let ourObject = { name: sanitizeHtml(req.body.name, sanitizeOptions), birthYear: new Date().getFullYear(), species: sanitizeHtml(req.body.species, sanitizeOptions), description: sanitizeHtml(req.body.description, sanitizeOptions) }
+  let ourObject = {
+    name: sanitizeHtml(req.body.name, sanitizeOptions),
+    birthYear: new Date().getFullYear(),
+    species: sanitizeHtml(req.body.species, sanitizeOptions),
+    description: sanitizeHtml(req.body.description, sanitizeOptions)
+  }
 
   if (req.body.birthYear > 999 && req.body.birthYear < 9999) {
     ourObject.birthYear = req.body.birthYear
   }
 
-  if (ourObject.species != "cat" && ourObject.species != "dog") {
-    ourObject.species = "dog"
+  if (ourObject.species != "chat" && ourObject.species != "chien" && ourObject.species != "lapin" && ourObject.species != "poule") {
+    ourObject.species = "chien"
   }
 
   const expectedSignature = cloudinary.utils.api_sign_request({ public_id: req.body.public_id, version: req.body.version }, cloudinaryConfig.api_secret)

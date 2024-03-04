@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edit <%= pet.name %> | Pet Adoption</title>
+  <title>Modifier <%= pet.name %> | Pet Adoption</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -14,15 +14,17 @@
 <body>
   <div class="page-section">
     <div class="page-section-inner">
-      <a href="/admin" class="small-link">&laquo; Back to admin dashboard</a>
-      <h1 class="page-section-title mb-big">Update a Pet</h1>
+      <a href="/admin" class="small-link">&laquo; Retour à la page d'administration</a>
+      <h1 class="page-section-title mb-big">Modifier un ami</h1>
       <form id="manage-pet-form" action="/admin/edit-pet" method="POST">
         <input type="hidden" name="_id" value="<%= pet._id %>" />
         <input autofocus autocomplete="off" class="form-field" type="text" name="name" value="<%= pet.name %>" />
         <input autocomplete="off" class="form-field" type="text" name="birthYear" value="<%= pet.birthYear %>" />
         <select class="form-field" id="species-select" name="species">
-          <option>dog</option>
-          <option>cat</option>
+          <option>chien</option>
+          <option>chat</option>
+          <option>lapin</option>
+          <option>poule</option>
         </select>
         <textarea class="form-field" name="description"><%= pet.description %></textarea>
 
@@ -36,13 +38,13 @@
         <input id="version" type="hidden" name="version" />
         <input id="signature" type="hidden" name="signature" />
 
-        <button id="submit-btn" class="our-btn">Submit Changes</button>
+        <button id="submit-btn" class="our-btn">Enregistrer les modifications</button>
       </form>
     </div>
   </div>
 
   <footer class="site-footer">
-    <p>&copy; 2023 Fake Adoption Center. All rights reserved.</p>
+    <p>&copy; 2024 Faux centre d'adoption. Tous droits réservés</p>
   </footer>
 
   <script>

@@ -82,7 +82,12 @@ exports.actuallyUpdatePet = async (req, res) => {
     req.body.description = ""
   }
 
-  let ourNewObject = { name: sanitizeHtml(req.body.name, sanitizeOptions), birthYear: new Date().getFullYear(), species: sanitizeHtml(req.body.species, sanitizeOptions), description: sanitizeHtml(req.body.description, sanitizeOptions) }
+  let ourNewObject = {
+    name: sanitizeHtml(req.body.name, sanitizeOptions),
+    birthYear: new Date().getFullYear(),
+    species: sanitizeHtml(req.body.species, sanitizeOptions),
+    description: sanitizeHtml(req.body.description, sanitizeOptions)
+  }
 
   if (req.body.birthYear > 999 && req.body.birthYear < 9999) {
     ourNewObject.birthYear = req.body.birthYear
@@ -117,7 +122,12 @@ exports.storePet = async (req, res) => {
     req.body.description = ""
   }
   
-  let ourObject = { name: sanitizeHtml(req.body.name, sanitizeOptions), birthYear: new Date().getFullYear(), species: sanitizeHtml(req.body.species, sanitizeOptions), description: sanitizeHtml(req.body.description, sanitizeOptions) }
+  let ourObject = {
+    name: sanitizeHtml(req.body.name, sanitizeOptions),
+    birthYear: new Date().getFullYear(),
+    species: sanitizeHtml(req.body.species, sanitizeOptions),
+    description: sanitizeHtml(req.body.description, sanitizeOptions)
+  }
 
   if (req.body.birthYear > 999 && req.body.birthYear < 9999) {
     ourObject.birthYear = req.body.birthYear

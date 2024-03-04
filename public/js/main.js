@@ -44,3 +44,84 @@ function handleButtonClick(e) {
     }
   })
 }
+
+/*
+ * Ouvrir/Fermer l'overlay avec le formulaire de contact au clic sur icon eveloppe
+ */
+
+document.querySelector(".form-overlay").style.display = ""
+// Ouvrir overlay
+function openOverlay(el) {
+  // Récupérer l'ID du pet
+  document.querySelector(".form-content").dataset.id = el.dataset.id
+  // Récupérer le nom de l'animal de la carte sur laquelle on a cliqué
+  document.querySelector(".form-photo p strong").textContent = el.closest(".pet-card").querySelector(".pet-name").textContent.trim() + "."
+  // Configurer l'image
+  document.querySelector(".form-photo img").src = el.closest(".pet-card").querySelector(".pet-card-photo img").src
+  // Afficher l'overlay
+  document.querySelector(".form-overlay").classList.add("form-overlay--is-visible")
+  // Empêcher le scroll de la page en arrière-plan
+  document.querySelector(":root").style.overflowY = "hidden"
+}
+
+// Fermer l'overlay
+document.querySelector(".close-form-overlay").addEventListener("click", closeOverlay)
+
+function closeOverlay() {
+  document.querySelector(".form-overlay").classList.remove("form-overlay--is-visible")
+  // Réactiver le scroll de la page en arrière-plan
+  document.querySelector(":root").style.overflowY = ""
+}
+
+/*
+ * Soumission du formulaire - Créer un objet qui sera envoyé au serveur
+ */
+
+document.querySelector(".form-content").addEventListener("submit", async function (e) {
+  e.preventDefault()
+
+  // créer objet contenant les données saisies dans le form qui sera envoyé au serveur
+  const userValues = {
+    petId: e.target.dataset.id,
+    name: document.querySelector("#name").value,
+    email: document.querySelector("#email").value,
+    secret: document.querySelector("#secret").value,
+    comment: document.querySelector("#comment").value
+  }
+
+  console.log(userValues)
+
+  // envoyer les données au serveur
+  fetch("/submit-contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(userValues)
+  })
+
+  // afficher message de remerciement
+  document.querySelector(".thank-you").classList.add("thank-you--visible")
+
+  // fermer l'overlay du message automatiquement après 2.5sec
+  setTimeout(closeOverlay, 2500)
+  // supprimer la class --visible et vider les champs du form 400ms après fermeture de l'overlay
+  setTimeout(() => {
+    document.querySelector(".thank-you").classList.remove("thank-you--visible")
+    document.querySelector("#name").value = ""
+    document.querySelector("#email").value = ""
+    document.querySelector("#secret").value = ""
+    document.querySelector("#comment").value = ""
+  }, 2900)
+})
+
+
+
+
+
+
+
+
+
+
+
